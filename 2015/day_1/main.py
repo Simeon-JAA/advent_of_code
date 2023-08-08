@@ -38,7 +38,7 @@ def find_first_basement_index(input: str) -> int:
 
 if __name__ == "__main__":
 
-    with open('Day 1/input.txt', 'r') as f:
+    with open('2015/day_1/input.txt', 'r') as f:
         floor_identifier = f.read()
 
 
