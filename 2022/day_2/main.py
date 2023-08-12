@@ -47,7 +47,6 @@ def determine_score_decrypted(line: str) -> int:
         return determine_score(new_input)
         
 
-
 if __name__ =="__main__":
 
     file = get_file().split("\n")
