@@ -12,7 +12,7 @@ def get_max_calories(list_of_calories: list[str]) -> int:
 
     calories_per_elf = []
 
-    calorie_count = 0 
+    calorie_count = 0
 
     for number in list_of_calories:
         if number != '':
@@ -29,7 +29,7 @@ def get_total_top_three_calories(list_of_calories: list[str]) -> int:
 
     calories_per_elf = []
 
-    calorie_count = 0 
+    calorie_count = 0
 
     for number in list_of_calories:
         if number != '':
@@ -39,20 +39,19 @@ def get_total_top_three_calories(list_of_calories: list[str]) -> int:
             calorie_count = 0
 
     calories_per_elf.sort(reverse=True)
-    
+
     top_three_calories = calories_per_elf[:3]
-    
+
     return sum(top_three_calories)
-    
 
-if __name__ =="__main__":
 
+if __name__ == "__main__":
 
     file = get_file()
 
     list_of_calories = file.split('\n')
-    
+
     max_calories = get_max_calories(list_of_calories)
     top_three_calories = get_total_top_three_calories(list_of_calories)
-    
+
     print(max_calories, top_three_calories)
