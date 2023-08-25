@@ -70,14 +70,43 @@ def generate_crate_stack(list_input: list[str]) -> list:
     return crate_stack
 
 
+def follow_stack_instruction(crate_stack: dict, instructions: str) -> dict:
+    """
+    Follows stack instruction
+    Updates stack orientation
+    Returns stack with new orientation
+    """
+
+    instructions = instructions.split(" ")
+
+    amount_to_move = int(instructions[1])
+    move_from = int(instructions[3])
+    move_to = int(instructions[-1])
+
+    for num in range(amount_to_move):
+        if len(crate_stack[move_from]) != 0:
+            crate_to_append = crate_stack[move_from].pop()
+            crate_stack[move_to].append(crate_to_append)
+
+    return crate_stack
+
+
 if __name__ == "__main__":
 
     input = get_input("2022/day_5/input.txt").split("\n")
 
     stack_input = input[0:9]
+    stack_instructions = input[10:]
 
     crate_stack = generate_crate_stack(stack_input)
 
-    # To see input
-    # for row in crate_stack.items():
-    #     print(row)
+    for inst in stack_instructions:
+        crate_stack = follow_stack_instruction(crate_stack, inst)
+
+    top_crates_part_1 = ""
+
+    for i in crate_stack.values():
+        # Part 1
+        top_crates_part_1 += i[-1]
+
+    print(top_crates_part_1)
