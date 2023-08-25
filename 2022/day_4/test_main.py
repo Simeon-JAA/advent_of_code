@@ -1,7 +1,7 @@
 """Testing file for main"""
 
 from main import fully_overlap_pair, format_input  # Part 1
-from main import any_overlap_pairs  # Part 2
+from main import any_overlap, generate_set  # Part 2
 
 
 def test_format_input_base_case_1():
@@ -68,17 +68,25 @@ def test_fully_overlap_pair_edge_case_1():
     assert result == True
 
 
-def test_any_overlap_pairs_base_case_1():
+def test_any_overlap_base_case_1():
     """Tests base case for any_overlap_pairs"""
 
-    result = any_overlap_pairs("10-5,7-9")
+    result = any_overlap("10-5,7-9")
 
     assert result == True
 
 
-def test_any_overlap_pairs_base_case_2():
+def test_any_overlap_base_case_2():
     """Tests base case for any_overlap_pairs"""
 
-    result = any_overlap_pairs("10-5,7-9")
+    result = any_overlap("10-5,7-9")
 
     assert result == True
+
+
+def test_generate_set():
+    """Tests base case for generate_set"""
+
+    result = generate_set([7, 10])
+
+    assert result == {7, 8, 9, 10}

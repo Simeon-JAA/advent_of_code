@@ -41,11 +41,36 @@ def fully_overlap_pair(input: str) -> bool:
     return False
 
 
+def generate_set(pair: list[int]) -> set:
+    """Generate set from pair input"""
+
+    lower_bound = pair[0]
+    upper_bound = pair[-1] + 1
+
+    set_to_return = set()
+
+    for number in range(lower_bound, upper_bound):
+        set_to_return.add(number)
+
+    return set_to_return
+
+
 def any_overlap(input: str) -> bool:
     """Returns True if any section overlaps with another else False"""
     input = format_input(input)
 
-   pass
+    pair_1 = input[0]
+    pair_1.sort()
+    pair_1 = generate_set(pair_1)
+    pair_2 = input[-1]
+    pair_2.sort()
+    pair_2 = generate_set(pair_2)
+
+    for num in pair_1:
+        if num in pair_2:
+            return True
+
+    return False
 
 
 if __name__ == "__main__":
@@ -53,7 +78,7 @@ if __name__ == "__main__":
     input = get_input("2022/day_4/input.txt").split("\n")
 
     fully_overlapped_pairs = 0
-    any_overlap_pairs = 0 
+    any_overlap_pairs = 0
     for pair in input:
         # Part 1
         if fully_overlap_pair(pair):
