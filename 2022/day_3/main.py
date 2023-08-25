@@ -23,7 +23,7 @@ def create_letter_priorities() -> dict:
     return letter_prioritisation
 
 
-def sum_priority(letter_count: dict) -> int:
+def sum_letter_count(letter_count: dict) -> int:
     """Returns the sum of the priorities for the given letter count"""
 
     letter_priotiries = create_letter_priorities()
@@ -54,6 +54,24 @@ def find_common_items(string: str) -> dict:
     return common_letter_count
 
 
+def find_common_items_in_group(items: list[str]) -> dict:
+    """Returns dictionary with common items and amounts"""
+
+    common_letter_count = {}
+
+    bag_1 = set(items[0])
+    bag_2 = set(items[1])
+    bag_3 = set(items[2])
+
+    for letter in bag_1:
+        if letter in bag_2 and letter in bag_3:
+            if not common_letter_count:
+                common_letter_count[letter] = 0
+            common_letter_count[letter] += 1
+
+    return common_letter_count
+
+
 def update_letter_count(letter_count: dict, new_letter: dict) -> dict:
     """Updates letter count and returns dictionary"""
 
@@ -74,9 +92,20 @@ if __name__ == "__main__":
     input = input.split("\n")
 
     letter_count = {}
+    letter_count_part_2 = {}
+
+    bag_groups = []
 
     for row in input:
+        # Part 1
         letter_count = update_letter_count(
             letter_count, find_common_items(row))
+        # Part 2
+        bag_groups.append(row)
+        if len(bag_groups) == 3:
+            letter_count_part_2 = update_letter_count(
+                letter_count_part_2, find_common_items_in_group(bag_groups))
+            bag_groups = []
 
-    print(sum_priority(letter_count))
+    print(sum_letter_count(letter_count))  # Part 1 Answer
+    print(sum_letter_count(letter_count_part_2))  # Part 2 Answer

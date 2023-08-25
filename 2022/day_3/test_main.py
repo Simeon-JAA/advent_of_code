@@ -1,6 +1,7 @@
 """Testing file for main"""
 
-from main import create_letter_priorities, sum_priority, find_common_items
+from main import create_letter_priorities, sum_letter_count, find_common_items
+from main import find_common_items_in_group
 
 
 def test_create_letter_priorities():
@@ -28,7 +29,7 @@ def test_sum_priority_base_case_1():
 
     input = {"a": 2, "A": 1}
 
-    result = sum_priority(input)
+    result = sum_letter_count(input)
 
     assert result == 29
 
@@ -38,7 +39,7 @@ def test_sum_priority_base_case_2():
 
     input = {"a": 18}
 
-    result = sum_priority(input)
+    result = sum_letter_count(input)
 
     assert result == 18
 
@@ -48,7 +49,7 @@ def test_sum_priority_base_case_3():
 
     input = {"a": 4, "c": 1}
 
-    result = sum_priority(input)
+    result = sum_letter_count(input)
 
     assert result == 7
 
@@ -58,7 +59,7 @@ def test_sum_priority_base_case_4():
 
     input = {"A": 2, "Z": 1}
 
-    result = sum_priority(input)
+    result = sum_letter_count(input)
 
     assert result == 106
 
@@ -85,3 +86,27 @@ def test_find_common_items_base_case_3():
     result = find_common_items("PmmdzqPrVvPwwTWBwg")
 
     assert result == {"P": 1}
+
+
+def test_find_common_items_in_group_base_case_1():
+    """Tests base case for find_common_items_in_group"""
+
+    input = ["vJrwpWtwJgWrhcsFMMfFFhFp",
+             "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
+             "PmmdzqPrVvPwwTWBwg"]
+
+    result = find_common_items_in_group(input)
+
+    assert result == {"r": 1}
+
+
+def test_find_common_items_in_group_base_case_2():
+    """Tests base case for find_common_items_in_group"""
+
+    input = ["wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn",
+             "ttgJtRGJQctTZtZT",
+             "CrZsJsPPZsGzwwsLwLmpwMDw"]
+
+    result = find_common_items_in_group(input)
+
+    assert result == {"Z": 1}
