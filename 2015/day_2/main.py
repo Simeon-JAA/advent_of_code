@@ -1,9 +1,16 @@
-"""Main python file"""
+"""Solution for Advent of Code 2015 day 2"""
+
+
+def get_input(file_path) -> str:
+    """Returns input file to use in code"""
+
+    with open(file_path, 'r') as f:
+        return f.read()
 
 
 def find_wrapping_paper(input: str) -> int:
     """Find the surface area of dimensions"""
-    # 2*l*w + 2*w*h + 2*h*l
+
     input = list(map(lambda x: int(x), input.split('x')))
     width = input[0]
     height = input[1]
@@ -25,8 +32,7 @@ def find_wrapping_paper(input: str) -> int:
 
 
 def find_ribbon(input: str) -> int:
-    # smallest perimeter of any one face
-    # cubic feet of volume of the present
+    """Find the amount of ribbon required given the dimensions"""
 
     input = list(map(lambda x: int(x), input.split('x')))
     width = input[0]
@@ -47,8 +53,8 @@ def find_ribbon(input: str) -> int:
 
 if __name__ == "__main__":
 
-    with open('2015/day_2/input.txt', 'r') as f:
-        box_dimensions = f.read().split('\n')
+    input_data = get_input("input.txt")
+    box_dimensions = input_data.split("\n")
 
     amount_of_wrapping_paper = 0
     amount_of_ribbon = 0
