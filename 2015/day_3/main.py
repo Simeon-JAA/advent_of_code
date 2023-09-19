@@ -1,4 +1,11 @@
-"""Main python file"""
+"""Solution for Advent of Code 2015 day 3"""
+
+
+def get_input_data(file_path: str) -> str:
+    """Returns input data to use in solution"""
+
+    with open(file_path, 'r') as f:
+        return f.read()
 
 
 def find_how_many_houses(input: str) -> int:
@@ -75,7 +82,6 @@ def find_how_many_houses_2(input: str) -> int:
 
 if __name__ == "__main__":
 
-    with open('2015/day_3/input.txt', 'r') as f:
-        input = f.read()
+    input_data = get_input_data("input.txt")
 
-    print(find_how_many_houses_2(input))
+    print(find_how_many_houses(input_data))
