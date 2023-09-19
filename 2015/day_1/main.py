@@ -1,15 +1,21 @@
-"""Main python file"""
+"""Solution for 2015 Day 1 advent of code"""
+
+
+def get_input(file_path: str) -> str:
+    """Returns input file"""
+
+    with open(file_path, 'r') as f:
+        return f.read()
+
 
 def find_floor(input: str) -> int:
-
     """Find floor based on input"""
 
     bracket_identifier = {
         '(': 1,
         ')': -1
     }
-    floor_number = 0 
-    index_of_first_basement = 0
+    floor_number = 0
 
     for bracket in input:
         if bracket in bracket_identifier:
@@ -17,15 +23,15 @@ def find_floor(input: str) -> int:
 
     return floor_number
 
-def find_first_basement_index(input: str) -> int:
 
+def find_first_basement_index(input: str) -> int:
     """Find index of string that made santa enter a minus level"""
 
     bracket_identifier = {
         '(': 1,
         ')': -1
     }
-    floor_number = 0 
+    floor_number = 0
     index_of_first_basement = 0
 
     for i, bracket in enumerate(input):
@@ -34,13 +40,11 @@ def find_first_basement_index(input: str) -> int:
         if floor_number < 0:
             index_of_first_basement = i + 1
             return index_of_first_basement
-    
+
 
 if __name__ == "__main__":
 
-    with open('2015/day_1/input.txt', 'r') as f:
-        floor_identifier = f.read()
+    input_file = get_input("input.txt")
 
-
-    print(find_floor(floor_identifier))
-    print(find_first_basement_index(floor_identifier))
+    print(find_floor(input_file))
+    print(find_first_basement_index(input_file))
