@@ -75,7 +75,7 @@ def any_overlap(input: str) -> bool:
 
 if __name__ == "__main__":
 
-    input = get_input("2022/day_4/input.txt").split("\n")
+    input = get_input("input.txt").split("\n")
 
     fully_overlapped_pairs = 0
     any_overlap_pairs = 0
@@ -87,4 +87,5 @@ if __name__ == "__main__":
         if any_overlap(pair):
             any_overlap_pairs += 1
 
-    print(fully_overlapped_pairs, any_overlap_pairs)
+    print(f"Fully overlapped pairs = {fully_overlapped_pairs}")
+    print(f"Any overlapped pairs = {any_overlap_pairs}")
