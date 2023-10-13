@@ -19,7 +19,7 @@ def all_distinct_characters(character_input: str) -> bool:
 
 
 def detect_first_marker_part_1(puzzle_input: str) -> int:
-    """Return index of the first marker from the puzzle input"""
+    """Return index of the first marker from the puzzle input (4 distinct characters)"""
 
     marker_to_test = ""
 
@@ -32,10 +32,26 @@ def detect_first_marker_part_1(puzzle_input: str) -> int:
                 return index
 
 
+def detect_first_marker_part_2(puzzle_input: str) -> int:
+    """Return index of the first marker from the puzzle input (14 distinct characters)"""
+
+    marker_to_test = ""
+
+    for index, character in enumerate(puzzle_input):
+        marker_to_test += character
+
+        if len(marker_to_test) > 14:
+            last_fifteen_characters = marker_to_test[-15:-1]
+            if all_distinct_characters(last_fifteen_characters):
+                return index
+
+
 if __name__ == "__main__":
 
     input = get_input("input.txt")
 
-    first_marker_index = detect_first_marker_part_1(input)
+    first_marker_index_part_1 = detect_first_marker_part_1(input)
+    first_marker_index_part_2 = detect_first_marker_part_2(input)
 
-    print(first_marker_index)
+    print(first_marker_index_part_1)
+    print(first_marker_index_part_2)
