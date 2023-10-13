@@ -87,7 +87,7 @@ def update_letter_count(letter_count: dict, new_letter: dict) -> dict:
 
 if __name__ == "__main__":
 
-    input = get_input("2022/day_3/input.txt")
+    input = get_input("input.txt")
 
     input = input.split("\n")
 
