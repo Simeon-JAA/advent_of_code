@@ -1,6 +1,6 @@
 """Testing file for main.py (Advent of code 2024 day 2)"""
 
-from main import format_file, create_lists, get_list_difference
+from main import format_file, create_lists, get_list_difference, get_list_similarity
 
 
 def test_format_file_base_case_1():
@@ -107,3 +107,35 @@ def test_get_list_difference_base_case_1():
     result = get_list_difference(list_1, list_2)
 
     assert result == 3
+
+def test_get_list_similarity_base_case_1():
+    """Tests base case for get_list_similarity"""
+
+    list_1, list_2, = create_lists("1 1 1 1")
+    result = get_list_similarity(list_1, list_2)
+
+    assert result == 4
+
+def test_get_list_similarity_base_case_2():
+    """Tests base case for get_list_similarity"""
+
+    list_1, list_2, = create_lists("1 1 2 1")
+    result = get_list_similarity(list_1, list_2)
+
+    assert result == 2
+
+def test_get_list_similarity_base_case_3():
+    """Tests base case for get_list_similarity"""
+
+    list_1, list_2, = create_lists("0 1 2 1")
+    result = get_list_similarity(list_1, list_2)
+
+    assert result == 0
+
+def test_get_list_similarity_base_case_4():
+    """Tests base case for get_list_similarity"""
+
+    list_1, list_2, = create_lists("5 1 2 5 6 5")
+    result = get_list_similarity(list_1, list_2)
+
+    assert result == 10

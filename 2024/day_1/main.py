@@ -56,7 +56,19 @@ def get_list_difference(list_1: list[str], list_2: list[str]) -> int:
     
     return absolute_difference
 
-     
+
+
+def get_list_similarity(list_1: list[str], list_2: list[str]) -> int:
+    """Returns list similarity"""
+    
+    list_similarity = 0
+    
+    for n in list_1:
+        list_similarity += (int(n) * list_2.count(n))
+    
+    return list_similarity
+
+
 if __name__ == "__main__":
 
     input_list = get_file("2024/day_1/input.txt")
@@ -64,7 +76,8 @@ if __name__ == "__main__":
     list_1, list_2 = create_lists(input_list)
     
     list_difference = get_list_difference(list_1, list_2)
+    list_similarity = get_list_similarity(list_1, list_2)
     
-    print(list_difference)
+    print(list_difference, list_similarity)
     
 
