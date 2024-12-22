@@ -1,4 +1,4 @@
-"""Testing file for main.py (Advent of code 2024 day 2)"""
+"""Testing file for main.py (Advent of code 2024 day 1)"""
 
 from main import format_file, create_lists, get_list_difference, get_list_similarity
 

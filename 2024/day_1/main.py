@@ -57,7 +57,6 @@ def get_list_difference(list_1: list[str], list_2: list[str]) -> int:
     return absolute_difference
 
 
-
 def get_list_similarity(list_1: list[str], list_2: list[str]) -> int:
     """Returns list similarity"""
     
